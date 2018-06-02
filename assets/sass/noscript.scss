@@ -2,42 +2,24 @@
 @import 'libs/functions';
 @import 'libs/mixins';
 @import 'libs/skel';
-@import 'font-awesome.min.css';
 
 /*
-	Massively by HTML5 UP
+	Identity by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Wrapper */
+/* Basic */
 
-	#wrapper {
-		background-color:		_palette(wrapper-bg);
-		background-image:		url('../../images/overlay.png'),	linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),	url('../../images/bg.jpg');
-		background-size:		auto,								auto,														100% auto;
-		background-position:	center,								center,														top center;
-		background-repeat:		repeat,								no-repeat,													no-repeat;
-		background-attachment:	fixed,								fixed,														fixed;
-
-		&.fade-in {
-			&:before {
-				display: none;
-			}
+	body {
+		&:after {
+			display: none;
 		}
 	}
 
-/* Intro */
+/* Main */
 
-	#intro {
-		body.is-loading & {
-			opacity: 1;
-
-			&:not(.hidden) {
-				& + #header + #nav {
-					@include vendor('transform', 'none');
-					opacity: 1;
-				}
-			}
-		}
+	#main {
+		@include vendor('transform', 'none !important');
+		opacity: 1 !important;
 	}

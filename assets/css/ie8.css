@@ -1,60 +1,36 @@
 /*
-	Read Only by HTML5 UP
+	Identity by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Basic */
+/* List */
 
-	code,
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	select,
-	textarea,
-	.box,
-	.image,
-	.image img,
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	.button {
-		position: relative;
-		-ms-behavior: url("assets/js/ie/PIE.htc");
+	ul.icons li a {
+		-ms-behavior: url("assets/js/PIE.htc");
 	}
 
-/* Form */
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	select {
-		line-height: 2.75em;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		-moz-appearance: normal;
-		-webkit-appearance: normal;
-		-ms-appearance: normal;
-		appearance: normal;
-	}
-
-		input[type="checkbox"] + label,
-		input[type="radio"] + label {
-			padding: 0 0 0 1.5em;
+		ul.icons li a:before {
+			text-align: center;
+			font-size: 26px;
 		}
 
-			input[type="checkbox"] + label:before,
-			input[type="radio"] + label:before {
-				display: none;
-			}
+/* Main */
 
-/* Button */
-
-	input[type="submit"].alt,
-	input[type="reset"].alt,
-	input[type="button"].alt,
-	.button.alt {
-		border: solid 2px #e4e4e4;
+	#main {
+		-ms-behavior: url("assets/js/PIE.htc");
 	}
+
+		#main .avatar img {
+			-ms-behavior: url("assets/js/PIE.htc");
+		}
+
+/* Footer */
+
+	#footer {
+		color: #fff;
+	}
+
+		#footer .copyright li {
+			border-left: solid 1px #fff;
+		}

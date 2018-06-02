@@ -1,129 +1,66 @@
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
 ///
-/// Massively by HTML5 UP
+/// Identity by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Form */
 
-	$gutter: (_size(element-margin) * 0.75);
-
 	form {
-		@include vendor('display', 'flex');
-		@include vendor('flex-wrap', 'wrap');
-		width: calc(100% + #{$gutter * 2});
-		margin: ($gutter * -1) 0 _size(element-margin) ($gutter * -1);
+		margin: 0 0 _size(element-margin) 0;
 
 		> .field {
-			@include vendor('flex-grow', '0');
-			@include vendor('flex-shrink', '0');
-			padding: $gutter 0 0 $gutter;
-			width: calc(100% - #{$gutter * 1});
-
-			&.half {
-				width: calc(50% - #{$gutter * 0.5});
-			}
-
-			&.third {
-				width: calc(#{100% / 3} - #{$gutter * (1 / 3)});
-			}
-
-			&.quarter {
-				width: calc(25% - #{$gutter * 0.25});
-			}
-		}
-
-		> .actions {
-			@include vendor('flex-grow', '0');
-			@include vendor('flex-shrink', '1');
-			margin: ($gutter * 1.25) 0 0 $gutter !important;
-			width: calc(100% - #{$gutter * 2});
-		}
-
-		&.alt {
-			display: block;
-			width: 100%;
 			margin: 0 0 _size(element-margin) 0;
 
-			> .actions {
-				margin: 0 0 _size(element-margin) 0;
-				width: 100%;
-			}
-		}
-
-		@include breakpoint(xsmall) {
-			$gutter: (_size(element-margin) * 0.75);
-
-			width: calc(100% + #{$gutter * 2});
-			margin: ($gutter * -1) 0 _size(element-margin) ($gutter * -1);
-
-			> .field {
-				padding: $gutter 0 0 $gutter;
-				width: calc(100% - #{$gutter * 1});
-
-				&.half {
-					width: calc(100% - #{$gutter * 1});
-				}
-
-				&.third {
-					width: calc(100% - #{$gutter * 1});
-				}
-
-				&.quarter {
-					width: calc(100% - #{$gutter * 1});
-				}
-			}
-
-			> .actions {
-				margin: $gutter 0 0 $gutter;
-				width: calc(100% - #{$gutter * 2});
+			> :last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
 
 	label {
+		color: _palette(fg-bold);
 		display: block;
-		font-family: _font(family-heading);
-		font-weight: _font(weight-heading);
-		line-height: 1.5;
-		letter-spacing: 0.075em;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		margin: 0 0 (_size(element-margin) * 0.375) 0;
-
-		@include breakpoint(medium) {
-			font-size: 0.9rem;
-		}
+		font-size: 0.9em;
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
 	select,
 	textarea {
 		@include vendor('appearance', 'none');
-		background: transparent;
 		border-radius: _size(border-radius);
-		border: solid 2px;
+		border: solid 1px _palette(border);
 		color: inherit;
 		display: block;
 		outline: 0;
-		padding: 0 1rem;
+		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
 
 		&:invalid {
 			box-shadow: none;
 		}
+
+		&:focus {
+			border-color: _palette(highlight);
+		}
 	}
 
 	.select-wrapper {
-		@include icon;
+		@include icon('\f078');
 		display: block;
 		position: relative;
 
 		&:before {
-			content: '\f078';
+			color: _palette(border);
 			display: block;
 			height: _size(element-height);
 			line-height: _size(element-height);
@@ -148,7 +85,7 @@
 	}
 
 	textarea {
-		padding: 0.75rem 1rem;
+		padding: 0.75em 1em;
 	}
 
 	input[type="checkbox"],
@@ -156,27 +93,26 @@
 		@include vendor('appearance', 'none');
 		display: block;
 		float: left;
-		margin-right: -2rem;
+		margin-right: -2em;
 		opacity: 0;
-		width: 1rem;
+		width: 1em;
 		z-index: -1;
 
 		& + label {
 			@include icon;
+			color: _palette(fg);
 			cursor: pointer;
 			display: inline-block;
-			font-size: 1rem;
-			letter-spacing: 0;
-			font-family: _font(family);
-			text-transform: none;
+			font-size: 1em;
 			font-weight: _font(weight);
-			padding-left: (_size(element-height) * 0.6) + 1rem;
-			padding-right: 1rem;
+			padding-left: (_size(element-height) * 0.6) + 0.75em;
+			padding-right: 0.75em;
 			position: relative;
 
 			&:before {
+				background: _palette(border-bg);
 				border-radius: _size(border-radius);
-				border: solid 2px;
+				border: solid 1px _palette(border);
 				content: '';
 				display: inline-block;
 				height: (_size(element-height) * 0.6);
@@ -184,14 +120,21 @@
 				line-height: (_size(element-height) * 0.575);
 				position: absolute;
 				text-align: center;
-				top: -0.125rem;
+				top: 0.15em;
 				width: (_size(element-height) * 0.6);
 			}
 		}
 
 		&:checked + label {
 			&:before {
+				color: _palette(highlight);
 				content: '\f00c';
+			}
+		}
+
+		&:focus + label {
+			&:before {
+				border-color: _palette(highlight);
 			}
 		}
 	}
@@ -213,99 +156,26 @@
 	}
 
 	::-webkit-input-placeholder {
+		color: _palette(fg-light) !important;
 		opacity: 1.0;
 	}
 
 	:-moz-placeholder {
+		color: _palette(fg-light) !important;
 		opacity: 1.0;
 	}
 
 	::-moz-placeholder {
+		color: _palette(fg-light) !important;
 		opacity: 1.0;
 	}
 
 	:-ms-input-placeholder {
+		color: _palette(fg-light) !important;
 		opacity: 1.0;
 	}
 
 	.formerize-placeholder {
+		color: _palette(fg-light) !important;
 		opacity: 1.0;
 	}
-
-	@mixin color-form($p: null) {
-		label {
-			color: _palette($p, fg-bold);
-		}
-
-		input[type="text"],
-		input[type="password"],
-		input[type="email"],
-		select,
-		textarea {
-			border-color: _palette($p, border);
-
-			&:focus {
-				border-color: _palette($p, accent);
-			}
-		}
-
-		select {
-			option {
-				background-color: _palette($p, bg);
-				color: _palette($p, fg);
-			}
-		}
-
-		.select-wrapper {
-			&:before {
-				color: _palette($p, border);
-			}
-		}
-
-		input[type="checkbox"],
-		input[type="radio"], {
-			& + label {
-				color: _palette($p, fg);
-
-				&:before {
-					border-color: _palette($p, border);
-				}
-			}
-
-			&:checked + label {
-				&:before {
-					background-color: _palette($p, fg-bold);
-					border-color: _palette($p, fg-bold);
-					color: _palette($p, bg);
-				}
-			}
-
-			&:focus + label {
-				&:before {
-					border-color: _palette($p, accent);
-				}
-			}
-		}
-
-		::-webkit-input-placeholder {
-			color: _palette($p, fg-light) !important;
-		}
-
-		:-moz-placeholder {
-			color: _palette($p, fg-light) !important;
-		}
-
-		::-moz-placeholder {
-			color: _palette($p, fg-light) !important;
-		}
-
-		:-ms-input-placeholder {
-			color: _palette($p, fg-light) !important;
-		}
-
-		.formerize-placeholder {
-			color: _palette($p, fg-light) !important;
-		}
-	}
-
-	@include color-form;
