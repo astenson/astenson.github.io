@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{genealogytree}
+\usepackage[paperheight=35in, paperwidth=70in, margin=1in]{geometry}
+\gtruselibrary{all}
+\usepackage{multirow}\usepackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
+
+\usepackage[normalem]{ulem}
+
+\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \setbox0=\hbox{#3}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+  }%
+}%
+
+\begin{document}
+
+%{\Huge Legend:}
+
+%{\large
+%\begin{itemize}
+%    \item Color Coding:
+%    \begin{itemize}
+%        \item Grey: Alumnus
+%        \item Yellow:
+%        \begin{itemize}
+%            \item Black Border: Former Alpha
+%            \item Blue Border: Former/Current Alpha, Active Member
+%            \item Red Border: Former Alpha, Disafiliated
+%        \end{itemize}
+%        \item Blue: Active member
+%        \item Green: New Member
+%        \item Red: Disaffiliated member
+%    \end{itemize}
+%    \item Abbreviations:
+%    \begin{itemize}
+%        \item AA: Alumni Association
+%        \item HC: Housing Corporation
+%        \item GC: Grand Council
+%        \item CPET: Chi Phi Educational Trust
+%    \end{itemize}
+%\end{itemize}
+%}
+
+\begin{center}
+
+%\quad
+%\quad
+%\input{maldonado.tex}
+%\quad
+%\input{random.tex}
+%\quad
+%\input{mcadoo.tex}
+%\quad
+%\input{lock.tex}
+%\quad
+%\input{schwind.tex}
+%\quad
+%\input{sweethearts.tex}
+\input{random.tex}
+\quad
+\input{alpha.tex}
+\quad
+\input{sweethearts.tex}
+
+\end{center}
+\end{document}
+
+
+            
